@@ -75,3 +75,4 @@ qualified NY securities attorney before subscriptions open. See
 ## License
 
 Proprietary. © 2026 Best Kind LLC. All rights reserved.
+ 
