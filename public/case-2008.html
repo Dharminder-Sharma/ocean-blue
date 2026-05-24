@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 2008 Case Study — How a rules-based rotation navigated the financial crisis</title>
+<meta name="description" content="Hypothetical walkthrough of how the Ocean Blue algorithm navigated the 2008 financial crisis: five rotations, +27.66% for the year, versus −41% for buy-and-hold QQQ.">
+<link rel="canonical" href="https://oceanblue.example.com/case-2008.html">
+
+<meta property="og:title" content="The 2008 Case Study — Ocean Blue">
+<meta property="og:description" content="How a rules-based rotation strategy hypothetically returned +26% in 2008.">
+<meta property="og:type" content="article">
+
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  article.case p { font-size: 1.1rem; line-height: 1.75; margin-bottom: 1.4rem; }
+  article.case h2 { margin-top: 2.5rem; margin-bottom: 1rem; }
+  .timeline { border-left: 3px solid var(--gold); padding-left: 1.5rem; margin: 2rem 0; }
+  .timeline-event { margin-bottom: 1.5rem; position: relative; }
+  .timeline-event::before { content: ''; position: absolute; left: -1.94rem; top: 0.3rem; width: 12px; height: 12px; border-radius: 50%; background: var(--navy); border: 2px solid var(--gold); }
+  .timeline-event .date { font-family: var(--font-mono); font-size: 0.85rem; color: var(--teal); font-weight: 600; }
+  .timeline-event .action { font-family: var(--font-display); font-size: 1.2rem; color: var(--navy); margin: 0.25rem 0; }
+  .timeline-event .detail { font-size: 0.95rem; color: var(--ink-soft); }
+</style>
+</head>
+<body>
+
+<div class="phase-banner"><strong>PAPER TRADING PHASE</strong> · Not yet accepting subscribers</div>
+
+<nav class="primary">
+  <div class="container">
+    <a href="/" class="logo"><span class="wave">≈</span>Ocean Blue</a>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <ul class="nav-links">
+      <li><a href="results.html">Track Record</a></li>
+      <li><a href="tracker.html">Live Tracker</a></li>
+      <li><a href="notebook/">Notebook</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="signup.html" class="cta">Join Waitlist</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero" style="padding-bottom: var(--space-xl);">
+  <div class="container-narrow">
+    <p class="eyebrow">Case study · Hypothetical backtest</p>
+    <h1>2008, <em>in slow motion.</em></h1>
+    <p class="lede">The financial crisis ended a 25-year bull market. The
+    S&amp;P 500 lost 38%. QQQ lost 41%. Trillions of dollars in retirement
+    savings evaporated, much of it never to be recovered by the people who
+    were within five years of using it. Here's how a rules-based rotation
+    strategy navigated the year, hypothetically — without predicting
+    anything.</p>
+
+    <div class="disclaimer" style="margin-top: var(--space-lg);">
+      <strong>Hypothetical performance.</strong> The results on this page come
+      from applying the algorithm's rules to historical price data. They are
+      not actual trading results. Past performance does not guarantee future
+      results. <em>[PENDING ATTORNEY REVIEW]</em>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top: 0;">
+  <div class="container-narrow">
+  <article class="case">
+
+  <h2>The setup, late 2007</h2>
+
+  <p>The QQQ closed 2007 at $51.12. Tech had been the leadership sector
+  for years. Apple was launching the first iPhone, Google was minting
+  money, the housing slowdown was theoretically contained to subprime,
+  and the consensus view among economists was that any recession would
+  be mild and brief.</p>
+
+  <p>The algorithm doesn't care about consensus views. It doesn't read
+  Fed minutes. It doesn't have an opinion on subprime mortgages or
+  Bear Stearns. What it does is watch a few specific things:</p>
+
+  <p>Price relative to its 200-day moving average. Volume confirmation
+  through volume signal. Trend strength via shorter-term moving averages. When
+  certain combinations of these signals fire together, the algorithm
+  concludes the equity regime has shifted and rotates accordingly.</p>
+
+  <p>Entering 2008, the algorithm was fully long QQQ. The regime was
+  technically still bullish — price above the 200-day moving average,
+  trend intact. That changed on January 18th.</p>
+
+  <h2>The five rotations of 2008</h2>
+
+  <div class="timeline">
+    <div class="timeline-event">
+      <div class="date">January 18, 2008</div>
+      <div class="action">QQQ → TLT</div>
+      <div class="detail">QQQ closed below its 200-day moving average for
+      the first time since 2003. volume signal crossover confirmed selling pressure.
+      The algorithm rotated to TLT — long-term Treasuries, which were
+      themselves in a bullish regime as bond yields fell on flight-to-safety
+      flows.</div>
+    </div>
+
+    <div class="timeline-event">
+      <div class="date">March 26, 2008</div>
+      <div class="action">TLT → QQQ (brief)</div>
+      <div class="detail">After the Bear Stearns rescue, equity markets
+      rallied sharply. QQQ briefly reclaimed its 200-day average. The
+      algorithm re-entered. This turned out to be a whipsaw — one of the
+      uncomfortable realities of any trend-following system.</div>
+    </div>
+
+    <div class="timeline-event">
+      <div class="date">June 23, 2008</div>
+      <div class="action">QQQ → TLT</div>
+      <div class="detail">As oil hit $140 and consumer sentiment collapsed,
+      QQQ lost the 200-day again. This time it stayed gone. The rotation
+      to TLT caught the beginning of the second leg of the bear market.</div>
+    </div>
+
+    <div class="timeline-event">
+      <div class="date">October 2008 — held through</div>
+      <div class="action">Hold TLT</div>
+      <div class="detail">During the most violent weeks of the crisis —
+      Lehman, AIG, TARP, the stock-market dislocations of October — the
+      algorithm sat in TLT. Treasuries rallied sharply as global capital
+      fled to perceived safety. This is the period that did most of the
+      heavy lifting on the year's return.</div>
+    </div>
+
+    <div class="timeline-event">
+      <div class="date">December 12, 2008</div>
+      <div class="action">TLT → CASH</div>
+      <div class="detail">In December, TLT itself broke below its 200-day
+      moving average as Treasury yields began to back up from extreme lows.
+      The algorithm doesn't hold defensive assets when those assets are
+      themselves in a downtrend. It moved to cash and finished the year there.</div>
+    </div>
+  </div>
+
+  <h2>The math of 2008</h2>
+
+  <p>The hypothetical strategy finished 2008 up approximately 27.66%.
+  Buy-and-hold QQQ finished the year down approximately 41.73%. The
+  difference — roughly 67 percentage points on the year — is most of
+  what makes the long-term backtest look the way it does.</p>
+
+  <p>This isn't because the algorithm is clever. It's because the rules
+  for entering and exiting are simple, and because being out of equities
+  during the worst calendar year for equities in seventy years turns
+  out to matter enormously to compounding outcomes.</p>
+
+  <p>A $100,000 portfolio that started 2008 in QQQ ended the year at
+  about $59,000 if it just held. The hypothetical Ocean Blue portfolio
+  ended at about $126,000. The relative wealth difference of more than
+  2x at the end of one year compounds across every subsequent year of
+  market exposure.</p>
+
+  <h2>What went right (and what could have gone wrong)</h2>
+
+  <p>It would be easy to read this case study and conclude that the
+  algorithm "saw the crisis coming." It didn't. The algorithm doesn't
+  predict. It exited QQQ in January 2008 because price action confirmed
+  a regime shift — not because it understood anything about credit
+  markets or housing.</p>
+
+  <p>If the crisis had been narrower — say, a normal recession with a
+  20% equity drawdown — the algorithm would still have rotated, would
+  still have produced something close to a flat year, and would have
+  given up some of the eventual recovery. That's the trade-off.
+  Rotation strategies don't time bottoms well. The cost of avoiding
+  the bottom is that you often miss part of the rebound.</p>
+
+  <p>The reason 2008 looks so favorable for the algorithm is precisely
+  because the year was so unusually bad. In a more typical bear market,
+  the strategy would have meaningfully reduced losses but wouldn't have
+  produced a positive year. The dynamic that allowed +26% in 2008 was
+  the simultaneous rally in long-term Treasuries — a feature of the
+  crisis that doesn't always occur in equity drawdowns.</p>
+
+  <h2>The 2009 cost</h2>
+
+  <p>Honesty requires acknowledging the other half. The algorithm
+  produced about 29% in 2009. Buy-and-hold QQQ produced about 47%. The
+  strategy was still partially in TLT for the first quarter of 2009 —
+  the worst period to be out of equities, as it turned out — and didn't
+  fully re-enter QQQ until later in the year.</p>
+
+  <p>This is the structural cost of trend-following: you miss bottoms.
+  By the time price action has confirmed that the regime has shifted
+  back to bullish, a significant portion of the recovery has already
+  happened. In 2009, that cost about 18 percentage points of relative
+  performance.</p>
+
+  <p>Over the full 2008-2009 cycle, the strategy still came out ahead
+  of buy-and-hold by a meaningful margin. The 67-point edge in 2008
+  was larger than the 18-point lag in 2009. But the lag was real, and
+  it's the kind of thing that tests subscriber patience in the months
+  it happens.</p>
+
+  <h2>What this case study is and isn't</h2>
+
+  <p>It's a transparent walkthrough of how the rules would have applied
+  to one famous year, given the data that was available at the time.
+  Five rotations. No predictions. No clever discretion. The algorithm
+  reacted to what price was actually doing, and the outcome over that
+  particular twelve months looked like this.</p>
+
+  <p>It isn't a guarantee of anything. The next equity drawdown may
+  not look like 2008. Treasuries may not rally — they didn't in 2022,
+  which is a case study for a different day. The algorithm may
+  generate signals that turn out to be wrong, and you'll be holding
+  whatever it told you to hold while that wrong signal unwinds.</p>
+
+  <p>What we can say is that for one specific terrible year for equity
+  investors, a simple set of rules applied without emotion or
+  prediction produced an outcome that most discretionary investors
+  would have envied. That's the kind of evidence that matters: not
+  that the strategy is always right, but that when it works, it works
+  for understandable reasons.</p>
+
+  <p style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border); font-style: italic; color: var(--ink-soft);">
+    Want the full year-by-year record?
+    See the <a href="results.html" style="text-decoration: underline;">22-year backtest</a>,
+    or read about the <a href="case-2022.html" style="text-decoration: underline;">2022 bear market</a>
+    — a different kind of test entirely.
+  </p>
+
+  </article>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-disclaimer"><strong>NOT INVESTMENT ADVICE.</strong> All performance shown is hypothetical, based on applying the strategy to historical data. <em>[PENDING ATTORNEY REVIEW]</em></div>
+    <div class="copyright">© 2026 Best Kind LLC. Made in Brooklyn, NY.</div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Regime breaks and the 2022 lesson — The Ocean Blue Notebook</title>
+<meta name="description" content="2022 broke the 60/40 portfolio for the first time in decades. Why a rules-based rotation strategy sat the year out, and what it teaches us about regime transitions.">
+<link rel="canonical" href="https://oceanblue.example.com/notebook/regime-breaks-and-the-2022-lesson.html">
+
+<meta property="og:title" content="Regime breaks and the 2022 lesson">
+<meta property="og:description" content="2022 broke a lot of strategies. Here's why a rules-based rotation sat most of it out.">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2026-05-17">
+<meta property="article:author" content="Ocean Blue">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Regime breaks and the 2022 lesson",
+  "description": "2022 broke a lot of strategies. Here's why a rules-based rotation sat most of it out.",
+  "author": {"@type": "Organization", "name": "Ocean Blue"},
+  "datePublished": "2026-05-17",
+  "publisher": {"@type": "Organization", "name": "Ocean Blue"}
+}
+</script>
+
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+  article.post { max-width: 700px; }
+  article.post p { font-size: 1.1rem; line-height: 1.75; margin-bottom: 1.5rem; }
+  article.post h2 { margin-top: 2.5rem; margin-bottom: 1rem; }
+  article.post h3 { margin-top: 2rem; margin-bottom: 0.75rem; }
+  article.post blockquote { border-left: 3px solid var(--gold); padding: 0.5rem 0 0.5rem 1.5rem; margin: 1.5rem 0; font-style: italic; color: var(--ink-soft); font-family: var(--font-display); font-size: 1.2rem; }
+  article.post .stat-callout { background: var(--paper); padding: 1.5rem; border-radius: var(--radius); margin: 2rem 0; }
+  article.post .stat-callout strong { font-family: var(--font-display); font-size: 1.4rem; color: var(--teal); display: block; margin-bottom: 0.25rem; }
+  .post-header { padding: 3rem 0 1.5rem; }
+  .post-meta { font-size: 0.85rem; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; }
+  .post-header h1 { font-size: clamp(2rem, 4vw, 3.2rem); margin-bottom: 1rem; }
+</style>
+</head>
+<body>
+
+<div class="phase-banner"><strong>PAPER TRADING PHASE</strong> · Not yet accepting subscribers</div>
+
+<nav class="primary">
+  <div class="container">
+    <a href="../" class="logo"><span class="wave">≈</span>Ocean Blue</a>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <ul class="nav-links">
+      <li><a href="../results.html">Track Record</a></li>
+      <li><a href="../tracker.html">Live Tracker</a></li>
+      <li><a href="./" class="active">Notebook</a></li>
+      <li><a href="../pricing.html">Pricing</a></li>
+      <li><a href="../signup.html" class="cta">Join Waitlist</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="post-header">
+  <div class="container-narrow">
+    <div class="post-meta">May 17, 2026 · 8 minute read</div>
+    <h1>Regime breaks and the 2022 lesson</h1>
+    <p class="lede">2022 was the worst year on record for the standard
+    retirement portfolio. Stocks fell. Bonds fell. The thing that's supposed
+    to protect you from one falling was falling at the same time. Here's why
+    our algorithm sat most of it out, and what the year actually proved.</p>
+  </div>
+</div>
+
+<section style="padding: 0 0 var(--space-xxl);">
+  <div class="container-narrow">
+  <article class="post">
+
+  <p>Most years, the 60/40 retirement portfolio does what it's supposed to do.
+  Stocks zig, bonds zag. When one is having a bad year the other usually
+  isn't, and the blend produces a smoother ride than holding either one
+  alone. That's the whole pitch of the asset class diversification model
+  that's powered the retirement industry for fifty years.</p>
+
+  <p>Then 2022 happened. The S&amp;P 500 fell about 18%. Long-term bonds —
+  specifically TLT — fell about 30%. A traditional 60/40 portfolio finished
+  the year down something like 17%, the worst calendar year for that
+  allocation since at least the 1930s. Investors who'd been told their
+  whole adult lives that "bonds protect you when stocks fall" watched both
+  sides of their portfolio bleed at the same time.</p>
+
+  <div class="stat-callout">
+    <strong>−17.5%</strong>
+    The 2022 return of a 60% stocks / 40% bonds portfolio. Stocks and bonds
+    fell together — for the first time in roughly four decades.
+  </div>
+
+  <h2>What our algorithm did in 2022</h2>
+
+  <p>We exited QQQ in mid-January. The algorithm doesn't predict, doesn't
+  forecast, doesn't read economic releases. What it does is watch a few
+  specific price and volume relationships, and when those relationships
+  shift in a particular way, it tells you the regime has changed.</p>
+
+  <p>In January 2022, the regime changed. Price broke below its long-term
+  moving average. Volume confirmed. The algorithm rotated to TLT briefly,
+  then — because TLT itself was also below its long-term moving average,
+  meaning the bond market was in its own regime break — moved to cash and
+  stayed there for most of the year.</p>
+
+  <p>That's the part people sometimes get wrong about rotation strategies.
+  The strategy isn't predicting where the market is going. It's reading
+  where the market is right now, and refusing to participate in regimes
+  that historically have produced bad outcomes. The reading isn't always
+  correct in real time. But over a long enough sample, "I refuse to hold
+  this thing while its long-term moving average is sloping down" turns out
+  to be a useful rule.</p>
+
+  <h2>The bond-correlation problem</h2>
+
+  <p>Here's the thing most allocation models don't admit: the negative
+  correlation between stocks and bonds that justifies the 60/40 portfolio
+  isn't a law of physics. It's a feature of the specific economic regime
+  we lived in from roughly 1985 to 2020 — disinflation, declining interest
+  rates, central bank credibility.</p>
+
+  <p>When that regime ended in 2022 — inflation broke out, rates rose
+  rapidly, bond prices collapsed — stocks and bonds suddenly became
+  positively correlated. They fell together. The protection mechanism
+  failed exactly when investors needed it most.</p>
+
+  <p>This isn't a problem with the 60/40 portfolio specifically. It's a
+  problem with any static allocation that assumes the future will resemble
+  the past. The defensive asset is only defensive while the correlation
+  holds. When the correlation breaks, the defense becomes an additional
+  liability.</p>
+
+  <h2>What rotation actually does differently</h2>
+
+  <p>A rules-based rotation strategy doesn't pretend to know which
+  correlation regime we're in. It checks every day. If TLT is acting like
+  a defensive asset (above its long-term moving average, in an uptrend),
+  fine — rotate there when leaving QQQ. If TLT is itself in a downtrend,
+  don't pretend it's defensive. Go to cash instead.</p>
+
+  <p>It's not a complicated idea. It just requires being willing to sit in
+  cash for months at a time, which feels deeply wrong if you've been told
+  for years that "time in the market beats timing the market." Sometimes
+  that's true. In 2022, "time in cash" beat "time in the market" by
+  roughly twenty percentage points.</p>
+
+  <div class="stat-callout">
+    <strong>−8.19% vs. −33.71%</strong>
+    Our hypothetical 2022 result, versus buy-and-hold QQQ for the same year.
+    Roughly 25 percentage points of capital preserved through one
+    application of the regime filter.
+  </div>
+
+  <h2>What 2022 didn't prove</h2>
+
+  <p>It would be tempting to use a year like 2022 to claim the strategy is
+  somehow superior to buy-and-hold. We try hard not to do that. Here's
+  what 2022 actually proved:</p>
+
+  <p><strong>It proved the regime filter does what it's supposed to do.</strong>
+  Not that it always will. Not that it can't whipsaw badly in choppy
+  markets — it did in 2010, 2015, and to a lesser extent 2019. But when a
+  real regime break happens, the algorithm catches it without needing
+  anyone to make a prediction.</p>
+
+  <p><strong>It proved that the standard retirement protection mechanism
+  can fail.</strong> Bonds didn't help in 2022. Diversification across
+  asset classes didn't help. Investors holding traditional balanced
+  portfolios lost real purchasing power on top of the nominal drawdown,
+  because inflation was running 8% while their portfolios fell 17%.</p>
+
+  <p><strong>It didn't prove that rotation is "better" in any general
+  sense.</strong> The strategy gives up upside during strong bull markets
+  to gain protection during bear markets. Whether that trade is worth it
+  depends entirely on what you're trying to accomplish with the money.
+  Someone with a 50-year horizon and no risk tolerance issues may be
+  perfectly fine with buy-and-hold QQQ. Someone in their late 60s with a
+  decade of retirement spending ahead probably has a different answer.</p>
+
+  <h2>One closing thought</h2>
+
+  <p>The thing 2022 made obvious is that you have to know what your
+  defensive plan actually is, ahead of time. "I'll hold through it" is a
+  plan that works fine until it doesn't, and the moment it stops working
+  is exactly the moment when changing plans is hardest. Most investors
+  who panic-sold near the 2022 bottom didn't think of themselves as
+  market-timers. They thought of themselves as long-term holders right up
+  to the day they couldn't take it anymore.</p>
+
+  <p>A rules-based rotation isn't a magic shield. But it removes the
+  decision from the moment of maximum stress. You don't have to think.
+  You don't have to know what the Fed is going to do, what the next CPI
+  print is going to say, whether tech earnings are coming in. The
+  algorithm tells you whether the regime is hospitable to your equity
+  exposure or it isn't. You execute accordingly.</p>
+
+  <p>For some people, that removes the worst part of investing — the part
+  where you have to be smart and unemotional at exactly the moment you
+  feel neither. For others, it's not worth the trade-off. There's no
+  universal answer. But 2022 was a year where the trade-off looked very
+  favorable indeed.</p>
+
+  <p style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border); font-style: italic; color: var(--ink-soft);">
+    Want to see how the strategy operates in real time? The
+    <a href="../tracker.html" style="text-decoration: underline;">live tracker</a>
+    publishes every signal, every rotation, every daily mark-to-market value.
+    Or
+    <a href="../signup.html" style="text-decoration: underline;">join the waitlist</a>
+    to be notified when subscriptions open.
+  </p>
+
+  </article>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-disclaimer"><strong>NOT INVESTMENT ADVICE.</strong> Past performance, hypothetical or actual, does not guarantee future results. <em>[PENDING ATTORNEY REVIEW]</em></div>
+    <div class="copyright">© 2026 Best Kind LLC. Made in Brooklyn, NY.</div>
+  </div>
+</footer>
+</body>
+</html>

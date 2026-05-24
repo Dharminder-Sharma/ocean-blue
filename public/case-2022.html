@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 2022 Case Study — When stocks and bonds fell together</title>
+<meta name="description" content="Hypothetical walkthrough of the 2022 bear market: tech crashed 34%, long bonds crashed 30%, the standard 60/40 retirement portfolio had its worst year ever. Here's how a rules-based rotation moved to cash.">
+<link rel="canonical" href="https://oceanblue.example.com/case-2022.html">
+
+<meta property="og:title" content="The 2022 Case Study — Ocean Blue">
+<meta property="og:type" content="article">
+
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  article.case p { font-size: 1.1rem; line-height: 1.75; margin-bottom: 1.4rem; }
+  article.case h2 { margin-top: 2.5rem; margin-bottom: 1rem; }
+  .timeline { border-left: 3px solid var(--gold); padding-left: 1.5rem; margin: 2rem 0; }
+  .timeline-event { margin-bottom: 1.5rem; position: relative; }
+  .timeline-event::before { content: ''; position: absolute; left: -1.94rem; top: 0.3rem; width: 12px; height: 12px; border-radius: 50%; background: var(--navy); border: 2px solid var(--gold); }
+  .timeline-event .date { font-family: var(--font-mono); font-size: 0.85rem; color: var(--teal); font-weight: 600; }
+  .timeline-event .action { font-family: var(--font-display); font-size: 1.2rem; color: var(--navy); margin: 0.25rem 0; }
+  .timeline-event .detail { font-size: 0.95rem; color: var(--ink-soft); }
+</style>
+</head>
+<body>
+
+<div class="phase-banner"><strong>PAPER TRADING PHASE</strong> · Not yet accepting subscribers</div>
+
+<nav class="primary">
+  <div class="container">
+    <a href="/" class="logo"><span class="wave">≈</span>Ocean Blue</a>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <ul class="nav-links">
+      <li><a href="results.html">Track Record</a></li>
+      <li><a href="tracker.html">Live Tracker</a></li>
+      <li><a href="notebook/">Notebook</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="signup.html" class="cta">Join Waitlist</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero" style="padding-bottom: var(--space-xl);">
+  <div class="container-narrow">
+    <p class="eyebrow">Case study · Hypothetical backtest</p>
+    <h1>2022, <em>when nothing worked.</em></h1>
+    <p class="lede">If 2008 was the test of rotating from stocks into bonds,
+    2022 was the test of recognizing that bonds weren't going to be your
+    friend either. Tech fell 34%. Long-term Treasuries fell 30%. The
+    60/40 retirement portfolio had its worst year on record. Here's how
+    a rules-based rotation handled it.</p>
+
+    <div class="disclaimer" style="margin-top: var(--space-lg);">
+      <strong>Hypothetical performance.</strong> Results from applying the
+      strategy's rules to historical data. Not actual trading results.
+      Past performance, hypothetical or actual, does not guarantee future
+      results. <em>[PENDING ATTORNEY REVIEW]</em>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top: 0;">
+  <div class="container-narrow">
+  <article class="case">
+
+  <h2>The setup, late 2021</h2>
+
+  <p>Coming into 2022, the QQQ had just produced a stunning three-year
+  run. From the COVID lows in March 2020, the index roughly tripled.
+  Cheap money, work-from-home tech tailwinds, retail flooding into
+  growth names. Everyone who'd been told to "just hold" had been
+  spectacularly rewarded for it.</p>
+
+  <p>The Fed had been signaling a tightening cycle. Inflation was
+  starting to look less transient. But the algorithm doesn't react to
+  Fed signals or inflation data. It watches price.</p>
+
+  <p>And price had been making lower lows in tech for about a month
+  when the regime broke.</p>
+
+  <h2>The 2022 rotation sequence</h2>
+
+  <div class="timeline">
+    <div class="timeline-event">
+      <div class="date">January 18, 2022</div>
+      <div class="action">QQQ → TLT</div>
+      <div class="detail">QQQ closed decisively below its 200-day moving
+      average. volume signal confirmed the regime shift. The algorithm rotated to
+      TLT, which was still in a marginal uptrend.</div>
+    </div>
+
+    <div class="timeline-event">
+      <div class="date">February 8, 2022</div>
+      <div class="action">TLT → CASH</div>
+      <div class="detail">TLT itself broke below its 200-day moving average
+      as bond yields surged on hawkish Fed commentary. The defensive
+      asset wasn't defensive anymore. The algorithm moved to cash.</div>
+    </div>
+
+    <div class="timeline-event">
+      <div class="date">March-August 2022 — stayed in cash</div>
+      <div class="action">Hold cash</div>
+      <div class="detail">Through the spring rally, the summer rally, and
+      every "this is the bottom" call from financial media, the algorithm
+      stayed in cash because QQQ remained below its 200-day moving average
+      and the regime filter did not turn green.</div>
+    </div>
+
+    <div class="timeline-event">
+      <div class="date">August 24, 2022</div>
+      <div class="action">CASH → QQQ (briefly)</div>
+      <div class="detail">The mid-August rally pushed QQQ briefly above its
+      200-day moving average. The algorithm re-entered. This was a whipsaw
+      — within three weeks, QQQ rolled over again and the algorithm exited
+      back to cash, taking a small loss on the round trip.</div>
+    </div>
+
+    <div class="timeline-event">
+      <div class="date">September 9 — December 2022</div>
+      <div class="action">Cash through year-end</div>
+      <div class="detail">The algorithm spent the last four months of 2022
+      in cash as QQQ continued its decline to October lows and then chopped
+      sideways. It did not catch the November-December rally because the
+      regime filter remained red.</div>
+    </div>
+  </div>
+
+  <h2>The math of 2022</h2>
+
+  <p>The hypothetical strategy finished 2022 down approximately 7.30%.
+  Buy-and-hold QQQ finished the year down approximately 32.58%. The
+  60/40 retirement portfolio finished down about 17.5%, its worst
+  result in decades.</p>
+
+  <p>For a retirement-focused investor, the difference between an
+  8% drawdown and a 34% drawdown in one year is not abstract.
+  A $500,000 IRA holding QQQ ended 2022 at roughly $331,000.
+  The same $500,000 in the hypothetical strategy ended 2022 at
+  roughly $459,000. That's $128,000 of preserved capital — about
+  three years of moderate retirement spending in a typical
+  household — earned by sitting in cash through a difficult market.</p>
+
+  <h2>What 2022 taught us about TLT</h2>
+
+  <p>Most rotation strategies assume that when equities go down,
+  bonds will go up. That's been broadly true for 40 years. It wasn't
+  true in 2022.</p>
+
+  <p>The reason is straightforward: the negative correlation between
+  stocks and bonds is a function of the specific economic regime —
+  declining inflation, accommodative central banks, falling real
+  yields. When that regime ends, as it did in 2022, the correlation
+  can flip positive. Both assets become rate-sensitive in the same
+  direction.</p>
+
+  <p>The algorithm doesn't need to understand any of this. The rule
+  is simple: don't hold a "defensive" asset that's itself in a
+  downtrend. When TLT broke its 200-day moving average in February
+  2022, the algorithm stopped treating it as defensive and moved to
+  cash. That single rule is what protected the strategy from the
+  60/40 disaster.</p>
+
+  <h2>The cost of caution</h2>
+
+  <p>The strategy gave back some performance in 2023. As QQQ ripped
+  back from its 2022 lows, the algorithm didn't re-enter until price
+  had decisively reclaimed its 200-day moving average — which didn't
+  happen until early 2023, missing the late-2022 rally. Through
+  2023, the strategy returned about 44% to buy-and-hold's 55%.
+  That's an 11-point lag.</p>
+
+  <p>This is the structural pattern of trend-following: you exit
+  early, miss the bottom, re-enter late, miss the early rally. The
+  cost of avoiding the catastrophic drawdown in 2022 was giving up
+  some of the recovery in 2023.</p>
+
+  <p>The full two-year cycle still favored the strategy
+  meaningfully. But the path was uncomfortable in both directions —
+  sitting in cash while markets ran in summer 2022, then watching the
+  early 2023 rally happen without you. This is one of the things
+  that takes some getting used to as a subscriber. The strategy isn't
+  trying to capture every move. It's trying to avoid the big
+  drawdowns. The two objectives are not the same.</p>
+
+  <h2>The honest read</h2>
+
+  <p>2022 was a year where rotation did exactly what it's supposed to
+  do. Caught the regime break. Avoided the worst of the equity
+  drawdown. Recognized that bonds weren't a refuge this time.
+  Stayed in cash long enough to matter.</p>
+
+  <p>But the strategy will not always look this good. There will be
+  years where the algorithm rotates to cash and the market rallies
+  without it. There will be whipsaws like the August 2022 round trip
+  that cost a few percentage points. There will be moments where
+  every other strategy is making money and ours is sitting on its
+  hands.</p>
+
+  <p>The trade-off across a full market cycle is what matters.
+  Avoiding 2022's full drawdown was worth the partial 2023 lag.
+  Avoiding 2008's full drawdown was worth the partial 2009 lag.
+  Avoiding the 2000-2002 dot-com crash (in the longer backtest)
+  was worth the partial late-2003 lag. The pattern is consistent:
+  what the strategy gives up in roaring bull markets, it more than
+  recovers when the regime breaks.</p>
+
+  <p>The question for any subscriber is whether they can stay with
+  the discipline through the periods when it costs them. If you
+  can — and that's a real "if" — the math compounds in your favor
+  over a long enough timeframe.</p>
+
+  <p style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border); font-style: italic; color: var(--ink-soft);">
+    Read about the
+    <a href="case-2008.html" style="text-decoration: underline;">2008 case study</a>
+    for a different kind of bear market — one where bonds <em>did</em> work.
+    Or see the full
+    <a href="results.html" style="text-decoration: underline;">22-year track record</a>.
+  </p>
+
+  </article>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-disclaimer"><strong>NOT INVESTMENT ADVICE.</strong> All performance shown is hypothetical. <em>[PENDING ATTORNEY REVIEW]</em></div>
+    <div class="copyright">© 2026 Best Kind LLC. Made in Brooklyn, NY.</div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join the Waitlist — Ocean Blue</title>
+<meta name="description" content="Join the Ocean Blue waitlist to be notified when subscriptions open.">
+<link rel="canonical" href="https://oceanblue.example.com/signup.html">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="phase-banner">
+  <strong>PAPER TRADING PHASE</strong> · Joining the waitlist is free and obligation-free
+</div>
+
+<nav class="primary">
+  <div class="container">
+    <a href="/" class="logo"><span class="wave">≈</span>Ocean Blue</a>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <ul class="nav-links">
+      <li><a href="results.html">Track Record</a></li>
+      <li><a href="tracker.html">Live Tracker</a></li>
+      <li><a href="how-it-works.html">How It Works</a></li>
+      <li><a href="ira.html">For IRAs</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="signup.html" class="cta active">Join Waitlist</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container-narrow">
+    <p class="eyebrow">Join the waitlist</p>
+    <h1>Be the first to know.</h1>
+    <p class="lede">We&rsquo;ll email you when subscriptions open — and only then. No spam, no
+    marketing blasts, no &ldquo;just checking in.&rdquo; One email, when it&rsquo;s time.</p>
+  </div>
+</section>
+
+<section style="padding-top: 0;">
+  <div class="container-narrow">
+    <div class="pricing-card" style="text-align: left; max-width: 560px;">
+      <!--
+        SIGNUP FORM
+        Phase 1: form posts to Formspree, EmailJS, or similar (no backend needed)
+        Phase 2+: form posts to your own backend API
+        Replace action URL with your actual endpoint when ready.
+      -->
+      <form id="waitlist-form" action="https://formspree.io/f/YOUR_FORM_ID_HERE" method="POST">
+        <div class="form-group">
+          <label for="name">Your name</label>
+          <input type="text" id="name" name="name" required autocomplete="name">
+        </div>
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input type="email" id="email" name="email" required autocomplete="email"
+                 placeholder="you@example.com">
+        </div>
+        <div class="form-group">
+          <label for="account_type">Account type you'd use this for (optional)</label>
+          <select id="account_type" name="account_type">
+            <option value="">Prefer not to say</option>
+            <option value="ira">Traditional IRA</option>
+            <option value="roth">Roth IRA</option>
+            <option value="401k">Self-directed 401(k) / Solo 401(k)</option>
+            <option value="taxable">Taxable brokerage</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="referral">Referral code (optional)</label>
+          <input type="text" id="referral" name="referral" placeholder="If a friend invited you, enter their code">
+        </div>
+        <div class="form-group">
+          <label style="display: flex; align-items: flex-start; gap: 0.6rem; font-weight: 400; font-size: 0.92rem;">
+            <input type="checkbox" name="consent" required style="width: auto; margin-top: 0.3rem;">
+            <span>I understand Ocean Blue is currently in a paper trading phase
+            and not yet accepting subscribers. I&rsquo;m joining the waitlist to be
+            notified when subscriptions open. I have read and acknowledge the
+            <a href="disclaimer.html" style="text-decoration: underline;">disclosures</a>.</span>
+          </label>
+        </div>
+        <button type="submit" class="btn btn-primary btn-large" style="width: 100%;">
+          Join Waitlist
+        </button>
+      </form>
+      <p style="font-size: 0.82rem; color: var(--ink-muted); margin-top: var(--space-md); text-align: center;">
+        We&rsquo;ll never share your email. Unsubscribe anytime with one click.
+      </p>
+    </div>
+
+    <div class="placeholder-note" style="max-width: 560px; margin-left: auto; margin-right: auto;">
+      [SETUP TODO] Replace <code>YOUR_FORM_ID_HERE</code> in the form action with
+      your Formspree form ID (free at formspree.io). Alternative free options:
+      Getform, Web3Forms, Basin. Once a backend exists, replace with your own
+      API endpoint.
+    </div>
+  </div>
+</section>
+
+<section class="cream">
+  <div class="container-narrow">
+    <h2>What happens after you sign up</h2>
+    <ol style="font-size: 1.05rem; line-height: 1.9; padding-left: 1.5rem; color: var(--ink);">
+      <li>You receive a confirmation email within a few minutes.</li>
+      <li>You hear nothing from us until subscriptions open (estimated after the
+      6-month paper trading phase completes and regulatory review is finalized).</li>
+      <li>When subscriptions open, you receive one email with sign-up instructions
+      and your priority access link.</li>
+      <li>You decide whether to subscribe. There&rsquo;s no obligation.</li>
+    </ol>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="logo" style="color: var(--parchment); margin-bottom: 1rem;">
+          <span class="wave" style="color: var(--gold);">≈</span>Ocean Blue
+        </div>
+        <p style="color: rgba(253,252,248,0.6); font-size: 0.88rem;">Operated by Best Kind LLC, Brooklyn, NY.</p>
+      </div>
+      <div><h4>The Service</h4><ul>
+        <li><a href="how-it-works.html">How it works</a></li>
+        <li><a href="results.html">Track record</a></li>
+        <li><a href="tracker.html">Live tracker</a></li>
+      </ul></div>
+      <div><h4>Resources</h4><ul>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="ira.html">For IRAs</a></li>
+      </ul></div>
+      <div><h4>Legal</h4><ul>
+        <li><a href="disclaimer.html">Disclosures</a></li>
+        <li><a href="terms.html">Terms</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-disclaimer">
+      <strong>NOT INVESTMENT ADVICE.</strong> Joining the waitlist creates no
+      obligation. <em>[PENDING ATTORNEY REVIEW]</em>
+    </div>
+    <div class="copyright">© 2026 Best Kind LLC.</div>
+  </div>
+</footer>
+
+</body>
+</html>

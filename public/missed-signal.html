@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What if you miss a signal? — Ocean Blue</title>
+<meta name="description" content="Honest analysis of execution slippage: what happens if you miss an Ocean Blue rotation signal by a day, a week, or a month. The cost of being late, and how much it actually matters.">
+<link rel="canonical" href="https://oceanblue.example.com/missed-signal.html">
+<meta property="og:title" content="What if you miss a signal?">
+<meta property="og:type" content="article">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="phase-banner"><strong>PAPER TRADING PHASE</strong> · Not yet accepting subscribers</div>
+
+<nav class="primary">
+  <div class="container">
+    <a href="/" class="logo"><span class="wave">≈</span>Ocean Blue</a>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <ul class="nav-links">
+      <li><a href="results.html">Track Record</a></li>
+      <li><a href="tracker.html">Live Tracker</a></li>
+      <li><a href="notebook/">Notebook</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="signup.html" class="cta">Join Waitlist</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero" style="padding-bottom: var(--space-xl);">
+  <div class="container-narrow">
+    <p class="eyebrow">Honest about execution</p>
+    <h1>What if you miss a signal?</h1>
+    <p class="lede">You will. Eventually. You'll be on vacation, your phone
+    will be dead, you'll see the alert at 11 PM and forget by morning. Here's
+    what that actually costs.</p>
+  </div>
+</section>
+
+<section style="padding-top: 0;">
+  <div class="container-narrow">
+
+  <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">Most signal services
+  pretend execution is perfect. The implication is that you'll see every
+  alert, place every trade, and get fills exactly at the published price.
+  That's not how anyone actually trades, and we'd rather be honest about it.</p>
+
+  <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">Here's what late
+  execution actually does to results, based on running the backtest with
+  realistic delay assumptions.</p>
+
+  <h2 style="margin-top: 2.5rem;">If you execute the same day</h2>
+
+  <p style="font-size: 1.05rem;">This is the published track record — the
+  algorithm signals after Tuesday's close, you place the trade Wednesday
+  morning at the open. CAGR of 16.87%, max drawdown of 27.78%, the numbers
+  on the results page. This is the realistic best-case scenario for a
+  subscriber paying attention.</p>
+
+  <h2>If you execute one day late</h2>
+
+  <p style="font-size: 1.05rem;">You see the alert that night, but you don't
+  get to a computer until the next evening, so you place the trade two days
+  after the signal instead of one. Over 22 years of backtesting, this costs
+  roughly 0.5 percentage points per year of return. Annualized return drops
+  from about 16.9% to about 16.4%. The max drawdown stays about the same.</p>
+
+  <p style="font-size: 1.05rem;">For perspective: on a $100K starting
+  portfolio, that 0.5pp/year gap over 22 years compounds to about $200K of
+  difference in ending value. Meaningful, but the strategy is still far
+  ahead of buy-and-hold.</p>
+
+  <h2>If you execute one week late</h2>
+
+  <p style="font-size: 1.05rem;">You're traveling or distracted, and you
+  don't see the alert until you're back at your desk a week later. Over
+  the backtest, this costs roughly 1.5 to 2 percentage points per year.
+  Annualized return drops to roughly 15%. Drawdowns are slightly worse
+  because you're sometimes holding equities a week into a regime break
+  the algorithm already identified.</p>
+
+  <p style="font-size: 1.05rem;">Still ahead of buy-and-hold over the long
+  run. Still preserving most of the strategy's edge. The structural pattern
+  holds even with substantial delay.</p>
+
+  <h2>If you execute a month late</h2>
+
+  <p style="font-size: 1.05rem;">This is the real cost-of-inattention
+  scenario. Over the backtest, monthly delay shaves about 4 to 5 percentage
+  points off the annualized return — down to roughly 12 to 13%. And
+  critically, the drawdown protection mostly disappears. By the time you
+  rotate out of equities a month after the signal fires, the worst of the
+  drawdown has often already happened.</p>
+
+  <p style="font-size: 1.05rem;">At a month of average delay, the strategy
+  starts to look more like buy-and-hold with extra friction. Most of the
+  edge comes from acting on the regime signal promptly. Rotation is a
+  perishable advantage.</p>
+
+  <h2>What this means in practice</h2>
+
+  <p style="font-size: 1.05rem; margin-bottom: 1.5rem;">A few practical
+  conclusions from this analysis:</p>
+
+  <p style="font-size: 1.05rem;"><strong>Same-day execution is achievable
+  for almost everyone.</strong> The signal arrives after the close.
+  You have all evening, all night, and until next morning's open to
+  place the trade. SMS delivery (the $5/month add-on) exists specifically
+  to make sure you see the alert promptly.</p>
+
+  <p style="font-size: 1.05rem;"><strong>Being a day or two late is not
+  catastrophic.</strong> The strategy is robust to small execution delays.
+  If you're sick, traveling, or otherwise indisposed for a day, you don't
+  need to panic-execute at 3 AM.</p>
+
+  <p style="font-size: 1.05rem;"><strong>Don't go on vacation without a
+  plan.</strong> If you're going to be unreachable for a week or more,
+  one option is to set a stop-loss on your QQQ position at the algorithm's
+  current trigger level. That way, if the algorithm signals an exit while
+  you're away, your brokerage executes for you. It's not a perfect
+  substitute, but it preserves most of the protection.</p>
+
+  <p style="font-size: 1.05rem;"><strong>The strategy works best for
+  people who actually pay attention.</strong> If you're going to ignore
+  the alerts for weeks at a time, you're better off buying QQQ and
+  holding. The expense of the subscription only makes sense if you're
+  going to act on the signals reasonably promptly.</p>
+
+  <h2>One more honest note</h2>
+
+  <p style="font-size: 1.05rem;">The 22-year backtest assumes mechanical
+  execution at next-day-open prices, with realistic slippage modeling but
+  no behavioral mistakes. Real subscribers make behavioral mistakes. They
+  override signals they disagree with. They re-enter early. They forget to
+  exit. They take partial positions.</p>
+
+  <p style="font-size: 1.05rem;">We can't model that, and we won't pretend
+  to. The published results are what mechanical execution of the rules
+  would have produced. Your actual results will be the rules plus your
+  execution discipline. Some subscribers will do better than the published
+  track record because they catch nuances the algorithm misses. Most
+  will do somewhat worse, in line with the universal pattern of
+  individual investors slightly underperforming the strategies they
+  follow.</p>
+
+  <p style="font-size: 1.05rem;">The point of this page is to make sure
+  you go into the subscription with realistic expectations. Same-day
+  execution: full edge. A day or two late: most of the edge. A month
+  late or skipping signals: probably not worth subscribing in the first
+  place.</p>
+
+  <p style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border); font-style: italic; color: var(--ink-soft);">
+    The optional SMS add-on ($5/mo) exists specifically to reduce the
+    probability of missing alerts. <a href="pricing.html" style="text-decoration: underline;">See pricing</a>
+    or <a href="signup.html" style="text-decoration: underline;">join the waitlist</a>.
+  </p>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-disclaimer"><strong>NOT INVESTMENT ADVICE.</strong> Slippage figures are from hypothetical backtest analysis. <em>[PENDING ATTORNEY REVIEW]</em></div>
+    <div class="copyright">© 2026 Best Kind LLC. Made in Brooklyn, NY.</div>
+  </div>
+</footer>
+</body>
+</html>

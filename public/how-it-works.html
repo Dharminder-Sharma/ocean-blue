@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How It Works — Ocean Blue</title>
+<meta name="description" content="The full mechanics of the Ocean Blue algorithmic QQQ rotation strategy.">
+<link rel="canonical" href="https://oceanblue.example.com/how-it-works.html">
+<link rel="stylesheet" href="assets/style.css"></head><body>
+<div class="phase-banner"><strong>PAPER TRADING PHASE</strong> · Not yet accepting subscribers</div>
+<nav class="primary"><div class="container">
+  <a href="/" class="logo"><span class="wave">≈</span>Ocean Blue</a>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+  <ul class="nav-links">
+    <li><a href="results.html">Track Record</a></li>
+    <li><a href="tracker.html">Live Tracker</a></li>
+    <li><a href="how-it-works.html" class="active">How It Works</a></li>
+    <li><a href="ira.html">For IRAs</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="signup.html" class="cta">Join Waitlist</a></li>
+  </ul>
+</div></nav>
+
+<section class="hero"><div class="container">
+  <p class="eyebrow">The complete mechanics</p>
+  <h1>One algorithm. <em>Three positions.</em> No discretion.</h1>
+  <p class="lede">Ocean Blue is rules-based, not opinion-based. The algorithm
+  evaluates the same conditions every market day and produces one of three
+  outputs: hold QQQ, hold TLT, or hold cash. Every subscriber gets the same signal.</p>
+</div></section>
+
+<section class="perf-section compact"><div class="container">
+  <div class="section-head">
+    <p class="eyebrow">The daily cycle</p>
+    <h2>What happens every market day</h2>
+  </div>
+  <div class="three-col">
+    <div class="col-item">
+      <div class="step">5:30 PM ET</div>
+      <h3>Signal computed</h3>
+      <p>The algorithm pulls today's QQQ and TLT closing prices, runs the v3.5.1 rules, and determines whether the regime changed.</p>
+    </div>
+    <div class="col-item">
+      <div class="step">5:35 PM ET</div>
+      <h3>Alert delivered</h3>
+      <p>If a position change is required, every subscriber receives an SMS and email simultaneously. If no change, no message is sent.</p>
+    </div>
+    <div class="col-item">
+      <div class="step">Next 9:30 AM ET</div>
+      <h3>You execute</h3>
+      <p>Place the trade in your IRA brokerage account at the next market open. Full rotation, no partial allocations.</p>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="container-narrow">
+  <h2>The three positions</h2>
+  <div class="faq-item">
+    <h3>QQQ (Invesco QQQ Trust)</h3>
+    <p>The Nasdaq-100 ETF. This is the default position when the algorithm
+    detects a bullish regime — price above its 200-day moving average with
+    confirmation, and no bearish trend signals firing.</p>
+  </div>
+  <div class="faq-item">
+    <h3>TLT (iShares 20+ Year Treasury Bond ETF)</h3>
+    <p>Used as a defensive rotation when the algorithm exits QQQ AND
+    long-term Treasury bonds are themselves in a bullish regime (TLT above
+    its own 200-day moving average). This historically captures the
+    "flight to safety" trade during equity bear markets.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Cash</h3>
+    <p>Used when the algorithm exits QQQ but TLT is also weak. In an IRA,
+    this is your settlement fund (money market). Earns risk-free interest
+    while waiting for the next equity entry signal.</p>
+  </div>
+
+  <h2 style="margin-top: var(--space-xl);">The signal inputs</h2>
+  <p>The algorithm evaluates several indicators each day. The exact rules and
+  parameters are proprietary, but the high-level components are:</p>
+  <ul style="margin-left: 1.5rem; line-height: 2;">
+    <li><strong>Regime filter</strong> — price relative to long-term moving average</li>
+    <li><strong>Volume confirmation</strong> — accumulation/distribution patterns</li>
+    <li><strong>Trend strength filter</strong> — distance from key moving averages</li>
+    <li><strong>Breakout detection</strong> — for re-entries after bear markets</li>
+    <li><strong>Whipsaw protection</strong> — distance filters that suppress signals near regime boundaries</li>
+  </ul>
+
+  <h2 style="margin-top: var(--space-xl);">What the algorithm does NOT use</h2>
+  <ul style="margin-left: 1.5rem; line-height: 2;">
+    <li>Macroeconomic data (GDP, employment, inflation reports)</li>
+    <li>News headlines or sentiment analysis</li>
+    <li>Earnings reports or analyst opinions</li>
+    <li>Fed announcements or central bank communications</li>
+    <li>Single-stock analysis</li>
+    <li>Options activity or VIX levels</li>
+  </ul>
+  <p>Price and volume data only. The discipline of ignoring everything else
+  is what allows the algorithm to remain consistent across regimes.</p>
+
+  <h2 style="margin-top: var(--space-xl);">Why ~25 trades per year (not more, not fewer)</h2>
+  <p>Over 22 years of backtesting, the algorithm averaged 558 position changes
+  (about 25 per year). Some years had as few as 8 changes; the most active
+  year had ~40 (during 2009-2010 whipsaws). The pattern is heavily concentrated
+  around regime transitions — most days produce no signal at all.</p>
+</div></section>
+
+<section class="dark"><div class="container-narrow" style="text-align: center;">
+  <h2 style="color: var(--parchment);">See it operate in real time</h2>
+  <p class="lede" style="color: rgba(253,252,248,0.85); margin-bottom: var(--space-lg);">
+    The live tracker shows every signal, every rotation, every daily mark-to-market.
+  </p>
+  <a href="tracker.html" class="btn" style="background: var(--gold); color: var(--navy);">Live Tracker →</a>
+</div></section>
+
+<footer class="site-footer"><div class="container">
+  <div class="footer-disclaimer"><strong>NOT INVESTMENT ADVICE.</strong> Strategy details described in general terms. Final algorithm parameters proprietary to Best Kind LLC. <em>[PENDING ATTORNEY REVIEW]</em></div>
+  <div class="copyright">© 2026 Best Kind LLC.</div>
+</div></footer>
+</body></html>

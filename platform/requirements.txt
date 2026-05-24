@@ -1,0 +1,20 @@
+# Ocean Blue platform requirements
+# Install: pip install -r requirements.txt
+
+# Core
+pandas>=2.0
+numpy>=1.24
+requests>=2.31
+openpyxl>=3.1
+
+# Third-party services (install when you wire them up)
+# sendgrid>=6.10     # Email delivery
+# twilio>=8.0        # SMS delivery
+# stripe>=7.0        # Billing
+
+# Web framework (only needed if hosting backend; not needed for GitHub Pages-only Phase 1)
+# flask>=3.0
+# gunicorn>=21.0
+
+# Logging
+python-json-logger>=2.0

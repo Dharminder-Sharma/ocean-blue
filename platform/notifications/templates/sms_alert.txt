@@ -1,0 +1,1 @@
+Ocean Blue: $from_position→$to_position as of $signal_date. QQQ $qqq_close, TLT $tlt_close. Execute at next open. Reply STOP to end.

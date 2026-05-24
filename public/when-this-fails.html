@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>When This Strategy Might Stop Working — Ocean Blue</title>
+<meta name="description" content="Honest discussion of the failure modes of rules-based rotation strategies. When the algorithm might underperform, what would make us pause, and how we think about strategy decay.">
+<link rel="canonical" href="https://oceanblue.example.com/when-this-fails.html">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="phase-banner"><strong>PAPER TRADING PHASE</strong> · Not yet accepting subscribers</div>
+
+<nav class="primary">
+  <div class="container">
+    <a href="/" class="logo"><span class="wave">≈</span>Ocean Blue</a>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <ul class="nav-links">
+      <li><a href="results.html">Track Record</a></li>
+      <li><a href="tracker.html">Live Tracker</a></li>
+      <li><a href="notebook/">Notebook</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="signup.html" class="cta">Join Waitlist</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero" style="padding-bottom: var(--space-xl);">
+  <div class="container-narrow">
+    <p class="eyebrow">An honest page</p>
+    <h1>When this might <em>stop working.</em></h1>
+    <p class="lede">Most marketing pages tell you why a strategy will keep
+    succeeding. This one tells you what would make it fail. We'd rather
+    you go in with eyes open than have a bad surprise twelve months in.</p>
+  </div>
+</section>
+
+<section style="padding-top: 0;">
+  <div class="container-narrow">
+
+  <p style="font-size: 1.1rem;">Every strategy has failure modes. The
+  ones that pretend they don't are the ones to avoid. Here are the
+  specific conditions under which Ocean Blue's algorithm would
+  underperform, sometimes badly.</p>
+
+  <h2>Choppy, range-bound markets</h2>
+
+  <p style="font-size: 1.05rem;">The single most reliable way to hurt a
+  trend-following strategy is a market that goes nowhere with lots of
+  short-term volatility. The algorithm exits on weakness, re-enters on
+  strength, gets whipsawed repeatedly. Each round trip costs a small
+  amount of return; many round trips over a year add up.</p>
+
+  <p style="font-size: 1.05rem;">2010 and 2015 were exactly this kind of
+  year. The strategy lost 2.84% in 2010 while QQQ gained 17.32%. It
+  lost 10.81% in 2015 while QQQ gained 8.67%. These were the worst
+  relative years in the 22-year backtest, and they happened during
+  periods that, in retrospect, looked like continued bull markets but
+  with multiple sharp pullbacks that the algorithm read as regime
+  changes.</p>
+
+  <p style="font-size: 1.05rem;">If the next several years happen to be
+  choppy rather than trending, the strategy will underperform
+  buy-and-hold materially. There's nothing in the rules that prevents
+  this. Pattern recognition without prediction means accepting that
+  the algorithm will be wrong in non-trending environments.</p>
+
+  <h2>Persistently bullish years with shallow corrections</h2>
+
+  <p style="font-size: 1.05rem;">A market that grinds higher all year
+  with only 5-10% pullbacks won't cost the strategy much, but it
+  won't give it any opportunity to outperform either. Years like 2017
+  (QQQ +30.3%) and 2024 (QQQ +27.0%) saw the strategy roughly match
+  but slightly trail buy-and-hold. In a 5-year stretch of pure
+  uptrend with no regime breaks, the strategy will lag by something
+  like 8-15 percentage points cumulatively. Not catastrophic, but
+  also not a win.</p>
+
+  <h2>Structural shifts in correlation patterns</h2>
+
+  <p style="font-size: 1.05rem;">The strategy uses TLT (long-term
+  Treasuries) as the defensive rotation when equities are in a bear
+  regime. This works when stocks and bonds are negatively correlated —
+  which has been the dominant pattern since the early 1980s.</p>
+
+  <p style="font-size: 1.05rem;">If we enter a sustained inflationary
+  period where stocks and bonds are positively correlated for years
+  on end, the TLT side of the rotation stops adding value. The
+  algorithm partly addresses this by also checking whether TLT
+  itself is above its 200-day moving average before rotating to it
+  (and going to cash if not). 2022 was the test of this rule and it
+  worked.</p>
+
+  <p style="font-size: 1.05rem;">But the rules were developed in a
+  world where bond bear markets were rare and brief. A multi-year
+  bond bear market alongside an equity bear market would force the
+  algorithm into extended cash positions, missing both equity rallies
+  and bond rallies. The strategy would underperform a balanced
+  portfolio that simply rode through.</p>
+
+  <h2>Sudden regime breaks the rules don't catch</h2>
+
+  <p style="font-size: 1.05rem;">The algorithm uses moving averages
+  that respond slowly by design — fast enough to catch most regime
+  changes, slow enough to ignore noise. The trade-off is that very
+  sudden moves can hurt the strategy because the algorithm takes
+  several days to register the shift.</p>
+
+  <p style="font-size: 1.05rem;">The 2020 COVID crash was an example.
+  The S&amp;P 500 fell 34% in five weeks — too fast for the algorithm
+  to fully exit before most of the damage was done. The strategy still
+  produced a positive 2020 (+41.7%, mostly from catching the rebound),
+  but the timing was lucky. Had the COVID drawdown not been followed
+  by an unprecedented recovery, the strategy could have ended the
+  year deeply in the red.</p>
+
+  <p style="font-size: 1.05rem;">A flash crash or geopolitical shock
+  that produces a 25% equity drawdown over 48 hours would similarly
+  catch the algorithm flat-footed. There's no rule fast enough to
+  protect against truly sudden moves without also generating false
+  signals constantly.</p>
+
+  <h2>Decay of the underlying market patterns</h2>
+
+  <p style="font-size: 1.05rem;">The rules were developed by analyzing
+  patterns in market behavior from 2004-2018, then validated on
+  2019-2026. If the underlying market patterns themselves shift —
+  because of changes in market structure, participant composition,
+  central bank behavior, regulation — the rules may stop working.</p>
+
+  <p style="font-size: 1.05rem;">Specifically: if retail participation
+  becomes much more dominant, if algorithmic trading shifts the
+  short-term price dynamics, if regulatory changes alter how price
+  discovery works, the technical signals that defined "regime" for
+  the past 20 years may behave differently in the next 20.</p>
+
+  <p style="font-size: 1.05rem;">There's no way to know in advance
+  whether this is happening or has happened. The honest answer is
+  that we'll find out by watching the strategy's live performance
+  over years. If the live track record starts diverging meaningfully
+  from backtest expectations — bigger drawdowns, more whipsaws,
+  fewer correct regime calls — that's a signal that something has
+  changed in the market and the rules may need revision.</p>
+
+  <h2>What would make us pause the strategy</h2>
+
+  <p style="font-size: 1.05rem;">We have an explicit set of stopping
+  criteria. If any of these happens, we'd publicly announce a pause
+  while we investigate:</p>
+
+  <ul style="margin-left: 1.5rem; line-height: 2; font-size: 1.05rem;">
+    <li>Maximum drawdown exceeds 40% (vs. backtest max of 28%)</li>
+    <li>Three consecutive years of significant underperformance
+    versus buy-and-hold during periods that weren't just strong
+    bull markets</li>
+    <li>Whipsaw frequency materially higher than backtest expectations
+    over a 24-month window</li>
+    <li>Failure of the regime filter to identify a major drawdown
+    (the algorithm holds through a 30%+ peak-to-trough decline)</li>
+    <li>Structural changes in market data quality, ETF availability,
+    or related infrastructure that affect the rules' inputs</li>
+  </ul>
+
+  <p style="font-size: 1.05rem;">In a pause, we'd continue publishing
+  paper signals while not charging subscribers. Subscribers could
+  cancel and get prorated refunds for any unused paid period. We'd
+  publish a public analysis of what we think changed and what we're
+  doing about it.</p>
+
+  <p style="font-size: 1.05rem;">This isn't a hypothetical we hope
+  never happens. Strategies decay. Markets adapt. Edges get arbitraged
+  away. We'd rather have a clear plan for the day the strategy stops
+  working than pretend that day will never come.</p>
+
+  <h2>The honest take on long-term durability</h2>
+
+  <p style="font-size: 1.05rem;">Simple, transparent rules tend to
+  decay less than complex, opaque ones. The 200-day moving average
+  has been a useful technical indicator for nearly 70 years. The
+  combination of regime filter + volume confirmation has been
+  studied in academic literature since the 1980s. None of this is
+  proprietary insight — it's well-documented technical analysis
+  applied with discipline.</p>
+
+  <p style="font-size: 1.05rem;">That said, "less likely to decay
+  than complex strategies" is not the same as "won't decay." Markets
+  change. The strategy might keep working for 20 more years. It
+  might stop working in 2027. We don't know in advance, and anyone
+  who claims to know is selling you something.</p>
+
+  <p style="font-size: 1.05rem;">What we can say is that if and when
+  the strategy stops working, we'll tell you. Loudly, publicly, and
+  with the data to back up the analysis. That commitment matters more
+  than any specific claim about future performance.</p>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-disclaimer"><strong>NOT INVESTMENT ADVICE.</strong> The strategy may underperform buy-and-hold for extended periods. Past performance does not guarantee future results. <em>[PENDING ATTORNEY REVIEW]</em></div>
+    <div class="copyright">© 2026 Best Kind LLC. Made in Brooklyn, NY.</div>
+  </div>
+</footer>
+</body>
+</html>

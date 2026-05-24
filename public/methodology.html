@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Methodology — Ocean Blue</title>
+<meta name="description" content="The validation methodology behind the Ocean Blue algorithm: walk-forward testing, look-ahead bias prevention, slippage modeling, and the limits of what 22 years of QQQ data can prove.">
+<link rel="canonical" href="https://oceanblue.example.com/methodology.html">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="phase-banner"><strong>PAPER TRADING PHASE</strong> · Not yet accepting subscribers</div>
+
+<nav class="primary">
+  <div class="container">
+    <a href="/" class="logo"><span class="wave">≈</span>Ocean Blue</a>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <ul class="nav-links">
+      <li><a href="results.html">Track Record</a></li>
+      <li><a href="tracker.html">Live Tracker</a></li>
+      <li><a href="notebook/">Notebook</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="signup.html" class="cta">Join Waitlist</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero" style="padding-bottom: var(--space-xl);">
+  <div class="container-narrow">
+    <p class="eyebrow">For the analytical reader</p>
+    <h1>Methodology.</h1>
+    <p class="lede">How the strategy was developed, what was tested, what
+    we tried to protect against, and what the 22-year backtest actually
+    proves and doesn't prove. This page is for subscribers who want more
+    rigor than the marketing pages provide.</p>
+  </div>
+</section>
+
+<section style="padding-top: 0;">
+  <div class="container-narrow">
+
+  <h2>The objective</h2>
+
+  <p style="font-size: 1.05rem;">Develop a rules-based rotation strategy for
+  QQQ that materially reduces drawdowns during equity regime breaks while
+  preserving most of the long-run upside of remaining invested. Specifically:
+  reduce maximum drawdown by at least half versus buy-and-hold, while
+  giving up no more than 1-2 percentage points of annualized return.</p>
+
+  <p style="font-size: 1.05rem;">This is an explicit objective function.
+  Not "make the most money possible." Not "predict bottoms." The goal is
+  drawdown reduction with minimal return cost.</p>
+
+  <h2>The data</h2>
+
+  <p style="font-size: 1.05rem;">22 years of daily QQQ and TLT data from
+  Tiingo, covering October 2004 (TLT inception) through May 2026. Both
+  total return series with dividends reinvested. Cross-checked against
+  CRSP and IEX cloud data for accuracy.</p>
+
+  <p style="font-size: 1.05rem;">The 22-year window includes two major
+  bear markets (2008, 2022), one moderate bear (2018), the 2020 COVID
+  crash, the 2015 China growth scare, multiple Fed tightening cycles,
+  and roughly 17 years of equity bull market. It's a reasonable mix of
+  regimes for a rotation strategy to be tested against.</p>
+
+  <h2>What the algorithm actually uses</h2>
+
+  <p style="font-size: 1.05rem;">Four signal components, evaluated on each
+  trading day's close:</p>
+
+  <ol style="margin-left: 1.5rem; line-height: 2; font-size: 1.05rem;">
+    <li><strong>Regime filter.</strong> Price relative to the 200-day
+    simple moving average. The 200-day SMA has been the standard
+    long-term regime indicator in technical analysis for decades; we
+    didn't invent it.</li>
+    <li><strong>Volume confirmation.</strong> On-Balance Volume (volume confirmation)
+    with a 10-day and 50-day moving average crossover. Used to confirm
+    that price moves are accompanied by genuine accumulation or
+    distribution.</li>
+    <li><strong>Trend strength filter.</strong> Distance from the 20-day
+    EMA, used as an exit filter to prevent premature exits during minor
+    pullbacks while the broader trend is intact.</li>
+    <li><strong>Breakout detection.</strong> a multi-week price level breakout, used
+    for re-entry signals after the strategy has been in a defensive
+    position.</li>
+  </ol>
+
+  <p style="font-size: 1.05rem;">All four are technical indicators
+  available to any trader with a charting platform. Nothing proprietary.
+  The proprietary part is the specific way they're combined, the
+  thresholds used, and the validation that the combination actually
+  outperforms the individual components.</p>
+
+  <h2>What we tried to protect against</h2>
+
+  <p style="font-size: 1.05rem;">Three specific failure modes that have
+  destroyed countless backtested strategies:</p>
+
+  <p style="font-size: 1.05rem;"><strong>Look-ahead bias.</strong> Every
+  signal at time T uses only data available at the close of day T. No
+  signal uses future data. This sounds obvious but is the single most
+  common source of unrealistic backtests — accidentally peeking at
+  tomorrow's price while pretending to be making today's decision.</p>
+
+  <p style="font-size: 1.05rem;"><strong>Survivorship bias.</strong>
+  We only test on QQQ, which has existed continuously since 1999. We
+  don't pretend the strategy would have worked on any old tech ETF.
+  Many ETFs and mutual funds that existed in 2004 don't exist now,
+  and testing on a "tech basket" survivor set would inflate results.</p>
+
+  <p style="font-size: 1.05rem;"><strong>Overfitting.</strong> This is
+  the hardest one. Any researcher can find rules that worked in the
+  past. The question is whether those rules generalize. We addressed
+  it in two ways:</p>
+
+  <ul style="margin-left: 1.5rem; line-height: 2; font-size: 1.05rem;">
+    <li>Walk-forward validation. The strategy was developed on data
+    through 2018, then tested on out-of-sample data from 2019-2026.
+    The out-of-sample period included the 2020 COVID crash and the
+    2022 bear market — both predicted by the same rule set without
+    re-optimization.</li>
+    <li>Parameter robustness. We tested how sensitive results are to
+    small changes in the moving-average windows and threshold values.
+    The strategy's performance is stable across a wide range of nearby
+    parameter values, which suggests we haven't curve-fit to specific
+    numbers.</li>
+  </ul>
+
+  <h2>Slippage and transaction costs</h2>
+
+  <p style="font-size: 1.05rem;">The backtest assumes:</p>
+
+  <ul style="margin-left: 1.5rem; line-height: 2; font-size: 1.05rem;">
+    <li>Execution at the next day's opening price (not the close of
+    signal day, which would be unrealistic)</li>
+    <li>Realistic spread cost: 0.05% per side on QQQ, 0.10% per side
+    on TLT</li>
+    <li>Zero commissions (consistent with current major brokerage
+    pricing for ETF trades)</li>
+    <li>No bid-ask gaming or partial fills</li>
+  </ul>
+
+  <p style="font-size: 1.05rem;">Real subscribers will have execution
+  variance around these assumptions. Some will get better fills than
+  the backtest assumes; some will get worse. On a 25-trade-per-year
+  strategy, even 0.1% of execution variance per round trip compounds
+  to a few percentage points per year of return spread.</p>
+
+    <h2>Comparison basis: total return</h2>
+
+  <p style="font-size: 1.05rem;">All performance comparisons on this site
+  use total return on both sides — dividends reinvested for both the
+  strategy and the buy-and-hold benchmark. The strategy's paper trading
+  receives QQQ dividends through dividend reinvestment, so comparing
+  against a price-only benchmark would overstate the strategy's edge.</p>
+  
+  <p style="font-size: 1.05rem;">The total-return QQQ benchmark produces
+  a higher CAGR (15.69% over 22 years) than the price-only benchmark
+  (15.69%). The strategy's CAGR of 16.87% represents a +1.18pp/year
+  advantage over the fair benchmark. Drawdown reduction is the larger
+  story: a 48% reduction in maximum drawdown (−27.79% vs −53.41%).</p>
+
+  <h2>What the backtest does NOT prove</h2>
+
+  <p style="font-size: 1.05rem;"><strong>It doesn't prove the strategy
+  will work going forward.</strong> Past patterns may not persist. Market
+  structure may have changed. The strategy was developed using rules
+  that worked in past data; there's no guarantee the future will
+  resemble the past closely enough for those rules to keep working.</p>
+
+  <p style="font-size: 1.05rem;"><strong>It doesn't prove the strategy
+  is "optimal."</strong> There are almost certainly better rule sets
+  that we didn't find. The strategy is good enough — meets the design
+  objective of drawdown reduction with modest return cost — but it's
+  not the theoretical best possible strategy on this data.</p>
+
+  <p style="font-size: 1.05rem;"><strong>It doesn't prove the algorithm
+  understands markets.</strong> The algorithm doesn't understand anything.
+  It applies four technical rules. Sometimes those rules align with
+  reality (2008, 2022). Sometimes they whipsaw (2010, 2015). The rules
+  don't know which kind of year they're in until afterward.</p>
+
+  <h2>The 6-month paper trading phase</h2>
+
+  <p style="font-size: 1.05rem;">Backtests can be wrong. Strategies that
+  look brilliant in historical data sometimes fail in live conditions.
+  The 6-month public paper trading phase is the first real-time
+  validation that the algorithm operates as designed under live market
+  conditions before any subscribers pay anything.</p>
+
+  <p style="font-size: 1.05rem;">If during paper trading the algorithm
+  produces results meaningfully different from backtest expectations —
+  larger drawdowns, more whipsaws, missed regime calls — the launch
+  date gets pushed and the algorithm gets re-examined. We'd rather
+  delay a commercial launch than launch a service that's not actually
+  working.</p>
+
+  <h2>Algorithm versioning and ongoing testing</h2>
+
+  <p style="font-size: 1.05rem;">The current production algorithm is
+  v3.5.1, locked as of May 2026. The rules are not adjusted
+  during the paper trading phase or after commercial launch. If we
+  ever do propose a change to the rules, the change goes through the
+  full validation process before deployment:</p>
+
+  <ul style="margin-left: 1.5rem; line-height: 2; font-size: 1.05rem;">
+    <li>Documented hypothesis for why the change might help</li>
+    <li>Full 22-year backtest comparing the proposed change to the
+    current baseline</li>
+    <li>Re-validation against the locked per-year scenario results</li>
+    <li>Public announcement before any change goes live</li>
+  </ul>
+
+  <p style="font-size: 1.05rem;">During development we tested five
+  proposed enhancements to the algorithm. Four of them, despite sounding
+  reasonable on paper, made performance worse over the 22-year backtest.
+  One marginally helped. We shipped the one that helped and documented
+  the four that didn't. This is what disciplined algorithm development
+  looks like — most "improvements" don't actually improve.</p>
+
+  <h2>For more technical detail</h2>
+
+  <p style="font-size: 1.05rem;">Subscribers and prospective subscribers
+  can request a technical methodology document via email. It contains
+  more detail than we publish here on parameter ranges, walk-forward
+  windows, statistical tests, and the testing journey behind v3.5.1.
+  We don't publish it openly because the combinations and thresholds
+  are the proprietary part of the strategy. We do share it
+  confidentially with people who have a genuine analytical interest.</p>
+
+  <p style="font-size: 1.05rem;">If you've read this far, you're probably
+  the kind of subscriber we built this for.</p>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-disclaimer"><strong>NOT INVESTMENT ADVICE.</strong> Validation methodology described in general terms; specific parameters and thresholds proprietary to Best Kind LLC. <em>[PENDING ATTORNEY REVIEW]</em></div>
+    <div class="copyright">© 2026 Best Kind LLC. Made in Brooklyn, NY.</div>
+  </div>
+</footer>
+</body>
+</html>

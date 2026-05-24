@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Live Paper Trading Tracker — Ocean Blue</title>
+<meta name="description" content="Live paper trading performance of the Ocean Blue strategy. Updated automatically each market day.">
+<link rel="canonical" href="https://oceanblue.example.com/tracker.html">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  .tracker-placeholder { padding: var(--space-xxl) var(--space-md); text-align: center; background: var(--paper); border-radius: var(--radius-lg); }
+</style></head><body>
+
+<div class="phase-banner"><strong>PAPER TRADING PHASE</strong> · Updated daily after market close</div>
+<nav class="primary"><div class="container">
+  <a href="/" class="logo"><span class="wave">≈</span>Ocean Blue</a>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+  <ul class="nav-links">
+    <li><a href="results.html">Track Record</a></li>
+    <li><a href="tracker.html" class="active">Live Tracker</a></li>
+    <li><a href="how-it-works.html">How It Works</a></li>
+    <li><a href="ira.html">For IRAs</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="signup.html" class="cta">Join Waitlist</a></li>
+  </ul>
+</div></nav>
+
+<section class="hero"><div class="container">
+  <p class="eyebrow">Live paper trading</p>
+  <h1>The strategy, <em>running today.</em></h1>
+  <p class="lede">This page is regenerated automatically after every market close.
+  Every signal, every rotation, every daily mark-to-market value is shown below
+  in real time.</p>
+</div></section>
+
+<section><div class="container">
+  <div class="tracker-placeholder">
+    <h2 style="margin-bottom: var(--space-md);">⏳ Tracker initializing</h2>
+    <p>The live tracker will appear here once the first daily run completes.
+    See <a href="docs/SETUP.md" style="text-decoration: underline;">setup
+    instructions</a> for activating the signal engine.</p>
+    <p style="margin-top: var(--space-md); font-size: 0.9rem; color: var(--ink-muted);">
+      This file is automatically replaced by the GitHub Action <code>daily_update.yml</code>
+      each market day at 6:00 PM ET. The action reads the latest <code>signal.json</code>
+      from the private signals repo and regenerates this page.
+    </p>
+  </div>
+</div></section>
+
+<footer class="site-footer"><div class="container">
+  <div class="footer-disclaimer"><strong>NOT INVESTMENT ADVICE.</strong> Paper trading results — hypothetical execution. <em>[PENDING ATTORNEY REVIEW]</em></div>
+  <div class="copyright">© 2026 Best Kind LLC.</div>
+</div></footer>
+</body></html>

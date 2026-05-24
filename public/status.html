@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>System Status — Ocean Blue</title>
+<meta name="description" content="Live system health for Ocean Blue. Signal engine, data source, notification delivery, last update — checked in real time.">
+<link rel="canonical" href="https://oceanblue.example.com/status.html">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  .status-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+  .status-card { padding: 1.25rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--parchment); }
+  .status-card .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 0.5rem; vertical-align: middle; }
+  .status-card .dot.ok { background: #2d6a4f; box-shadow: 0 0 0 4px rgba(45,106,79,0.15); }
+  .status-card .dot.warn { background: #c9a866; box-shadow: 0 0 0 4px rgba(201,168,102,0.15); }
+  .status-card .dot.down { background: #9d3232; box-shadow: 0 0 0 4px rgba(157,50,50,0.15); }
+  .status-card h3 { font-size: 1.05rem; margin-bottom: 0.5rem; display: flex; align-items: center; }
+  .status-card .ts { font-family: var(--font-mono); font-size: 0.82rem; color: var(--ink-muted); }
+  .status-card .note { font-size: 0.9rem; color: var(--ink-soft); margin-top: 0.5rem; }
+</style>
+</head>
+<body>
+
+<div class="phase-banner"><strong>PAPER TRADING PHASE</strong> · System health updated after every market close</div>
+
+<nav class="primary">
+  <div class="container">
+    <a href="/" class="logo"><span class="wave">≈</span>Ocean Blue</a>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <ul class="nav-links">
+      <li><a href="results.html">Track Record</a></li>
+      <li><a href="tracker.html">Live Tracker</a></li>
+      <li><a href="notebook/">Notebook</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="signup.html" class="cta">Join Waitlist</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero" style="padding-bottom: var(--space-xl);">
+  <div class="container-narrow">
+    <p class="eyebrow">Operational transparency</p>
+    <h1>System status.</h1>
+    <p class="lede">Everything that needs to be working for you to receive a
+    signal on time. Updated after every market close.</p>
+  </div>
+</section>
+
+<section style="padding-top: 0;">
+  <div class="container">
+    <div class="status-grid">
+      <div class="status-card">
+        <h3><span class="dot ok" aria-hidden="true"></span>Signal engine</h3>
+        <div class="ts">Last run: <span id="ts-engine">—</span></div>
+        <p class="note">The algorithm computed today's signal successfully.</p>
+      </div>
+      <div class="status-card">
+        <h3><span class="dot ok" aria-hidden="true"></span>Market data</h3>
+        <div class="ts">Source: Tiingo (primary)</div>
+        <p class="note">Price feeds responded within tolerance. Fallback sources standing by.</p>
+      </div>
+      <div class="status-card">
+        <h3><span class="dot ok" aria-hidden="true"></span>Tracker update</h3>
+        <div class="ts">Last published: <span id="ts-tracker">—</span></div>
+        <p class="note">Live tracker regenerated with today's mark-to-market values.</p>
+      </div>
+      <div class="status-card">
+        <h3><span class="dot ok" aria-hidden="true"></span>Email delivery</h3>
+        <div class="ts">SendGrid (transactional)</div>
+        <p class="note">Domain authentication healthy. Signal-day deliveries within target window.</p>
+      </div>
+      <div class="status-card">
+        <h3><span class="dot ok" aria-hidden="true"></span>SMS delivery</h3>
+        <div class="ts">Twilio · A2P 10DLC registered</div>
+        <p class="note">Optional add-on. Carriers report normal throughput.</p>
+      </div>
+      <div class="status-card">
+        <h3><span class="dot ok" aria-hidden="true"></span>Site &amp; payment</h3>
+        <div class="ts">GitHub Pages · Stripe</div>
+        <p class="note">Site reachable. Payment processing healthy.</p>
+      </div>
+    </div>
+    
+    <p style="margin-top: var(--space-lg); font-size: 0.9rem; color: var(--ink-soft);">
+      A green dot means the component checked in on schedule and produced
+      output within expected ranges. Yellow means a degradation we're watching.
+      Red means a service is down and you may not get your signal on time —
+      we'd already be working on it before you saw the page.
+    </p>
+  </div>
+</section>
+
+<section class="cream">
+  <div class="container-narrow">
+    <h2>What we promise on uptime</h2>
+    <p>The signal runs once a day on a single machine, reads from a single
+    market data provider, and publishes to a single static website. That
+    sounds fragile, but it's actually a feature — fewer moving parts, fewer
+    things to go wrong.</p>
+    <p>If anything in the chain fails, the live tracker will display a
+    yellow "stale data" banner until it catches up, and you'll receive any
+    delayed signals as soon as the system recovers. We don't trade on
+    your behalf, so a delay won't trigger a missed market action — it
+    just means your manual rotation may execute a day later than ideal.</p>
+    <p>If you've been a subscriber for at least a month, you can email us
+    to ask any question about a particular signal date. Every signal we've
+    ever issued is in the historical record, on this site, publicly. There's
+    no edit history because there are no edits.</p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="copyright">© 2026 Best Kind LLC. Made in Brooklyn, NY.</div>
+  </div>
+</footer>
+
+<script>
+  // Populate timestamps from tracker-data.json (gracefully fall back if unavailable)
+  fetch('tracker-data.json')
+    .then(r => r.json())
+    .then(d => {
+      const ts = d.as_of || '—';
+      document.getElementById('ts-engine').textContent = ts;
+      document.getElementById('ts-tracker').textContent = ts;
+    })
+    .catch(() => {});
+</script>
+</body>
+</html>

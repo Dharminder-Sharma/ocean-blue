@@ -1,0 +1,12 @@
+# Ocean Blue — robots.txt
+User-agent: *
+Allow: /
+Disallow: /tracker-data/
+Disallow: /api/
+
+# Don't index legal placeholders until finalized
+Disallow: /terms.html
+Disallow: /privacy.html
+Disallow: /disclaimer.html
+
+Sitemap: https://oceanblue.example.com/sitemap.xml

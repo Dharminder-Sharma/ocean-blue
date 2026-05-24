@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Ocean Blue Notebook — Market commentary and strategy notes</title>
+<meta name="description" content="Periodic notes from Ocean Blue on market regime, the math of drawdowns, and how a rules-based algorithm sees what's happening in equity markets.">
+<link rel="canonical" href="https://oceanblue.example.com/notebook/">
+<meta property="og:title" content="The Ocean Blue Notebook">
+<meta property="og:description" content="Market commentary and strategy notes from Ocean Blue.">
+<meta property="og:type" content="website">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "The Ocean Blue Notebook",
+  "description": "Market commentary and strategy notes from Ocean Blue.",
+  "url": "https://oceanblue.example.com/notebook/",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Ocean Blue",
+    "url": "https://oceanblue.example.com/"
+  }
+}
+</script>
+
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+  .post-list { display: grid; gap: 2rem; }
+  .post-card { padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+  .post-card:last-child { border-bottom: none; }
+  .post-card h2 { margin-bottom: 0.5rem; }
+  .post-card h2 a { color: var(--navy); transition: color 0.15s ease; }
+  .post-card h2 a:hover { color: var(--teal); }
+  .post-meta { font-size: 0.85rem; color: var(--ink-muted); margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .post-excerpt { font-size: 1.05rem; color: var(--ink-soft); }
+</style>
+</head>
+<body>
+
+<div class="phase-banner"><strong>PAPER TRADING PHASE</strong> · Not yet accepting subscribers</div>
+
+<nav class="primary">
+  <div class="container">
+    <a href="../" class="logo"><span class="wave">≈</span>Ocean Blue</a>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <ul class="nav-links">
+      <li><a href="../results.html">Track Record</a></li>
+      <li><a href="../tracker.html">Live Tracker</a></li>
+      <li><a href="./" class="active">Notebook</a></li>
+      <li><a href="../ira.html">For IRAs</a></li>
+      <li><a href="../pricing.html">Pricing</a></li>
+      <li><a href="../signup.html" class="cta">Join Waitlist</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero" style="padding-bottom: var(--space-xl);">
+  <div class="container-narrow">
+    <p class="eyebrow">Field notes</p>
+    <h1>The Notebook.</h1>
+    <p class="lede">Occasional writing on what the algorithm sees, how markets
+    behave when they break, and the unglamorous math that drives long-term
+    compounding. Updated when there's something worth saying — not on a schedule.</p>
+  </div>
+</section>
+
+<section style="padding-top: 0;">
+  <div class="container-narrow">
+    <div class="post-list">
+
+      <article class="post-card">
+        <div class="post-meta">May 2026 · 8 minute read</div>
+        <h2><a href="regime-breaks-and-the-2022-lesson.html">Regime breaks and the 2022 lesson</a></h2>
+        <p class="post-excerpt">2022 was a year that broke a lot of strategies.
+        The traditional 60/40 portfolio had its worst year on record because
+        stocks and bonds fell together. Anyone running tactical rotation against
+        the equity market either looked brilliant or got chopped to pieces. We
+        looked at why the algorithm sat out most of 2022, and what it would have
+        done if 2022 had unfolded slightly differently.</p>
+      </article>
+
+      <article class="post-card">
+        <div class="post-meta">Coming soon</div>
+        <h2 style="color: var(--ink-muted);">2008, in slow motion</h2>
+        <p class="post-excerpt">A daily replay of how the algorithm navigated
+        the financial crisis. Five rotations, 14 months, and the +26% year that
+        most equity strategies couldn't have produced.</p>
+      </article>
+
+      <article class="post-card">
+        <div class="post-meta">Coming soon</div>
+        <h2 style="color: var(--ink-muted);">Why we don't read the news</h2>
+        <p class="post-excerpt">The algorithm doesn't know about earnings, Fed
+        announcements, or whatever a senator said this morning. It only looks
+        at price and volume. Here's why that turns out to be a feature, not a
+        limitation.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="container-narrow" style="text-align: center;">
+    <h2 style="color: var(--parchment);">Get notified of new posts</h2>
+    <p class="lede" style="color: rgba(253,252,248,0.85); margin-bottom: var(--space-lg);">
+      Join the waitlist. You'll get the launch announcement, and (if you
+      want it) the occasional Notebook post when something interesting comes up.
+    </p>
+    <a href="../signup.html" class="btn" style="background: var(--gold); color: var(--navy);">Join Waitlist →</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-disclaimer"><strong>NOT INVESTMENT ADVICE.</strong> <em>[PENDING ATTORNEY REVIEW]</em></div>
+    <div class="copyright">© 2026 Best Kind LLC. Made in Brooklyn, NY.</div>
+  </div>
+</footer>
+</body>
+</html>
